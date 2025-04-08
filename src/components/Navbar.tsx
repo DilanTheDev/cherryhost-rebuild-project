@@ -7,8 +7,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
+  const { user, isAdmin } = useAuth();
+
   return (
     <div className="w-full bg-midnight sticky top-0 z-50 border-b border-white/10">
       <div className="container mx-auto py-4 flex items-center justify-between">
@@ -24,15 +27,25 @@ const Navbar = () => {
           <Link to="/game-panel" className="text-white hover:text-cherry-400 transition-colors">Game Panel</Link>
           <Link to="/billing" className="text-white hover:text-cherry-400 transition-colors">Billing</Link>
           <Link to="/support" className="text-white hover:text-cherry-400 transition-colors">Support</Link>
+          {user && <Link to="/dashboard" className="text-white hover:text-cherry-400 transition-colors">Dashboard</Link>}
+          {isAdmin && <Link to="/admin/blog" className="text-cherry-400 hover:text-cherry-300 transition-colors">Admin</Link>}
         </div>
         
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="text-white hover:text-cherry-400 hover:bg-transparent transition-colors hidden md:flex">
-            Login
-          </Button>
-          <Button className="bg-cherry-600 hover:bg-cherry-700 text-white">
-            Order Now
-          </Button>
+          {!user ? (
+            <>
+              <Button variant="ghost" className="text-white hover:text-cherry-400 hover:bg-transparent transition-colors hidden md:flex">
+                <Link to="/auth">Login</Link>
+              </Button>
+              <Button className="bg-cherry-600 hover:bg-cherry-700 text-white">
+                <Link to="/#packages">Order Now</Link>
+              </Button>
+            </>
+          ) : (
+            <Button className="bg-cherry-600 hover:bg-cherry-700 text-white">
+              <Link to="/dashboard">My Account</Link>
+            </Button>
+          )}
           <Sheet>
             <SheetTrigger asChild>
               <Button size="icon" variant="ghost" className="md:hidden">
@@ -46,9 +59,23 @@ const Navbar = () => {
                 <Link to="/game-panel" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</Link>
                 <Link to="/billing" className="text-lg font-semibold hover:text-cherry-400 py-2">Billing</Link>
                 <Link to="/support" className="text-lg font-semibold hover:text-cherry-400 py-2">Support</Link>
+                {user && <Link to="/dashboard" className="text-lg font-semibold hover:text-cherry-400 py-2">Dashboard</Link>}
+                {isAdmin && <Link to="/admin/blog" className="text-lg font-semibold text-cherry-400 hover:text-cherry-300 py-2">Admin</Link>}
                 <div className="flex flex-col gap-2 mt-4">
-                  <Button variant="outline" className="border-white/20 hover:bg-white/5 justify-start">Login</Button>
-                  <Button className="bg-cherry-600 hover:bg-cherry-700 justify-start">Order Now</Button>
+                  {!user ? (
+                    <>
+                      <Button variant="outline" className="border-white/20 hover:bg-white/5 justify-start">
+                        <Link to="/auth">Login</Link>
+                      </Button>
+                      <Button className="bg-cherry-600 hover:bg-cherry-700 justify-start">
+                        <Link to="/#packages">Order Now</Link>
+                      </Button>
+                    </>
+                  ) : (
+                    <Button className="bg-cherry-600 hover:bg-cherry-700 justify-start">
+                      <Link to="/dashboard">My Account</Link>
+                    </Button>
+                  )}
                 </div>
               </div>
             </SheetContent>
