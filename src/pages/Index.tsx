@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Packages from "@/components/Packages";
@@ -8,6 +9,10 @@ import GamePanel from "@/components/GamePanel";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "CherryHost - Minecraft Server Hosting Made Easy";
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-midnight">
       <Navbar />
