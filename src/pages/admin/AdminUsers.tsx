@@ -1,8 +1,5 @@
 
-import { useEffect, useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { Navigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,8 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Filter, MoreHorizontal, Search, UserPlus } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Filter, MoreHorizontal, Search, UserPlus, User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,73 +28,33 @@ interface UserProfile {
   created_at: string;
 }
 
+// Mock data for demonstration
+const mockUsers: UserProfile[] = [
+  {
+    id: '1',
+    full_name: 'John Doe',
+    avatar_url: null,
+    is_admin: true,
+    created_at: '2025-01-01T00:00:00Z'
+  },
+  {
+    id: '2',
+    full_name: 'Jane Smith',
+    avatar_url: null,
+    is_admin: false,
+    created_at: '2025-01-02T00:00:00Z'
+  }
+];
+
 const AdminUsers = () => {
-  const { user, profile, isLoading } = useAuth();
-  const [users, setUsers] = useState<UserProfile[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    if (!isLoading && user) {
-      fetchUsers();
-    }
-  }, [user, isLoading]);
-
-  const fetchUsers = async () => {
-    try {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*');
-        
-      if (error) {
-        throw error;
-      }
-      
-      setUsers(data as UserProfile[]);
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to fetch users",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [users, setUsers] = useState<UserProfile[]>(mockUsers);
+  const [loading, setLoading] = useState(false);
 
   const handleToggleAdmin = async (userId: string, isCurrentlyAdmin: boolean) => {
-    try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ is_admin: !isCurrentlyAdmin })
-        .eq('id', userId);
-        
-      if (error) {
-        throw error;
-      }
-      
-      setUsers(users.map(u => 
-        u.id === userId ? {...u, is_admin: !isCurrentlyAdmin} : u
-      ));
-      
-      toast({
-        title: "Success",
-        description: `User is ${!isCurrentlyAdmin ? 'now' : 'no longer'} an admin`,
-      });
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to update user",
-        variant: "destructive",
-      });
-    }
+    setUsers(users.map(u => 
+      u.id === userId ? {...u, is_admin: !isCurrentlyAdmin} : u
+    ));
   };
-
-  // Redirect if not admin
-  if (!isLoading && (!user || (profile && !profile.is_admin))) {
-    return <Navigate to="/dashboard" replace />;
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

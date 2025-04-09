@@ -1,8 +1,5 @@
 
-import { useEffect, useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { Navigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -25,7 +22,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { PenSquare, Trash2, Plus, Filter } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 interface BlogPost {
   id: string;
@@ -38,99 +34,37 @@ interface BlogPost {
   } | null;
 }
 
-interface SupabaseBlogPost {
-  id: string;
-  title: string;
-  created_at: string;
-  published: boolean;
-  author_id: string;
-  content: string;
-  excerpt: string | null;
-  featured_image: string | null;
-  published_at: string | null;
-  slug: string;
-  updated_at: string;
-  author: {
-    full_name: string | null;
-    avatar_url: string | null;
-  } | null;
-}
+// Mock data for demonstration
+const mockPosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'Getting Started with Minecraft Servers',
+    created_at: '2025-01-01T00:00:00Z',
+    published: true,
+    author: {
+      full_name: 'John Doe',
+      avatar_url: null
+    }
+  },
+  {
+    id: '2',
+    title: 'Top 5 Minecraft Mods for 2025',
+    created_at: '2025-01-02T00:00:00Z',
+    published: false,
+    author: {
+      full_name: 'Jane Smith',
+      avatar_url: null
+    }
+  }
+];
 
 const AdminBlog = () => {
-  const { user, profile, isLoading } = useAuth();
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    if (!isLoading && user) {
-      fetchPosts();
-    }
-  }, [user, isLoading]);
-
-  const fetchPosts = async () => {
-    try {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*, author:author_id(full_name, avatar_url)')
-        .order('created_at', { ascending: false });
-        
-      if (error) {
-        throw error;
-      }
-      
-      // Transform the data to match the BlogPost interface
-      const transformedPosts: BlogPost[] = (data as any[]).map(post => ({
-        id: post.id,
-        title: post.title,
-        created_at: post.created_at,
-        published: post.published || false,
-        author: post.author
-      }));
-      
-      setPosts(transformedPosts);
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to fetch blog posts",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [posts, setPosts] = useState<BlogPost[]>(mockPosts);
+  const [loading, setLoading] = useState(false);
 
   const handleDelete = async (id: string) => {
-    try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .delete()
-        .eq('id', id);
-        
-      if (error) {
-        throw error;
-      }
-      
-      setPosts(posts.filter(post => post.id !== id));
-      
-      toast({
-        title: "Success",
-        description: "Blog post deleted successfully",
-      });
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to delete blog post",
-        variant: "destructive",
-      });
-    }
+    setPosts(posts.filter(post => post.id !== id));
   };
-
-  // Redirect if not admin
-  if (!isLoading && (!user || (profile && !profile.is_admin))) {
-    return <Navigate to="/dashboard" replace />;
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

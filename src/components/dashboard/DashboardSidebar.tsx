@@ -1,6 +1,5 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
 import { 
   Home, Server, FileText, 
   Settings, Users, PenTool,
@@ -9,7 +8,6 @@ import {
 
 const DashboardSidebar = () => {
   const location = useLocation();
-  const { isAdmin } = useAuth();
   
   const isActive = (path: string) => {
     return location.pathname === path || location.pathname.startsWith(`${path}/`);
@@ -48,31 +46,27 @@ const DashboardSidebar = () => {
           <span>Game Panel</span>
         </a>
         
-        {isAdmin && (
-          <>
-            <div className="pt-6 pb-2 px-4">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                Admin
-              </p>
-            </div>
-            <Link to="/admin/users" className={`admin-sidebar-link ${isActive("/admin/users") ? "active" : ""}`}>
-              <Users size={20} />
-              <span>Users</span>
-            </Link>
-            <Link to="/admin/blog" className={`admin-sidebar-link ${isActive("/admin/blog") ? "active" : ""}`}>
-              <PenTool size={20} />
-              <span>Blog</span>
-            </Link>
-            <Link to="/admin/analytics" className={`admin-sidebar-link ${isActive("/admin/analytics") ? "active" : ""}`}>
-              <BarChart3 size={20} />
-              <span>Analytics</span>
-            </Link>
-            <Link to="/admin/settings" className={`admin-sidebar-link ${isActive("/admin/settings") ? "active" : ""}`}>
-              <Settings size={20} />
-              <span>Settings</span>
-            </Link>
-          </>
-        )}
+        <div className="pt-6 pb-2 px-4">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            Admin
+          </p>
+        </div>
+        <Link to="/admin/users" className={`admin-sidebar-link ${isActive("/admin/users") ? "active" : ""}`}>
+          <Users size={20} />
+          <span>Users</span>
+        </Link>
+        <Link to="/admin/blog" className={`admin-sidebar-link ${isActive("/admin/blog") ? "active" : ""}`}>
+          <PenTool size={20} />
+          <span>Blog</span>
+        </Link>
+        <Link to="/admin/analytics" className={`admin-sidebar-link ${isActive("/admin/analytics") ? "active" : ""}`}>
+          <BarChart3 size={20} />
+          <span>Analytics</span>
+        </Link>
+        <Link to="/admin/settings" className={`admin-sidebar-link ${isActive("/admin/settings") ? "active" : ""}`}>
+          <Settings size={20} />
+          <span>Settings</span>
+        </Link>
       </nav>
       
       <div className="mt-auto pt-6">
