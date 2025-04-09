@@ -6,9 +6,26 @@ import { Server, Clock, FileText, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
+interface ServerWithPlan {
+  id: string;
+  name: string;
+  status: string;
+  expires_at: string;
+  plans: {
+    name: string;
+    ram_gb: number;
+    storage_gb: number;
+  };
+}
+
+interface Invoice {
+  id: string;
+  status: string;
+}
+
 const Dashboard = () => {
   const { user } = useAuth();
-  const [servers, setServers] = useState<any[]>([]);
+  const [servers, setServers] = useState<ServerWithPlan[]>([]);
   const [stats, setStats] = useState({
     activeServers: 0,
     pendingInvoices: 0,
@@ -25,23 +42,27 @@ const Dashboard = () => {
     setIsLoading(true);
     try {
       // Fetch user's servers
-      const { data: serverData } = await supabase
-        .from("servers")
-        .select("*, plans(*)")
-        .eq("user_id", user?.id)
-        .order("created_at", { ascending: false });
+      const { data: serverData, error: serverError } = await supabase
+        .from('servers')
+        .select('*, plans(*)')
+        .eq('user_id', user?.id || '')
+        .order('created_at', { ascending: false });
+      
+      if (serverError) throw serverError;
       
       // Fetch pending invoices
-      const { data: invoiceData } = await supabase
-        .from("invoices")
-        .select("*")
-        .eq("user_id", user?.id)
-        .eq("status", "pending");
+      const { data: invoiceData, error: invoiceError } = await supabase
+        .from('invoices')
+        .select('*')
+        .eq('user_id', user?.id || '')
+        .eq('status', 'pending');
+      
+      if (invoiceError) throw invoiceError;
 
-      setServers(serverData || []);
+      setServers(serverData as ServerWithPlan[]);
       setStats({
         activeServers: (serverData || []).filter(s => s.status === 'active').length,
-        pendingInvoices: (invoiceData || []).length,
+        pendingInvoices: (invoiceData as Invoice[] || []).length,
       });
     } catch (error) {
       console.error("Error fetching dashboard data:", error);

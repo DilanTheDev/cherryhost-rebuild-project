@@ -27,9 +27,20 @@ import {
 import { PenSquare, Trash2, Plus, Filter } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  created_at: string;
+  published: boolean;
+  author: {
+    full_name: string;
+    avatar_url: string;
+  } | null;
+}
+
 const AdminBlog = () => {
   const { user, profile, isLoading } = useAuth();
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
@@ -43,15 +54,15 @@ const AdminBlog = () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
-        .from("blog_posts")
-        .select("*, author:author_id(full_name, avatar_url)")
-        .order("created_at", { ascending: false });
+        .from('blog_posts')
+        .select('*, author:author_id(full_name, avatar_url)')
+        .order('created_at', { ascending: false });
         
       if (error) {
         throw error;
       }
       
-      setPosts(data || []);
+      setPosts(data as BlogPost[]);
     } catch (error: any) {
       toast({
         title: "Error",
@@ -66,9 +77,9 @@ const AdminBlog = () => {
   const handleDelete = async (id: string) => {
     try {
       const { error } = await supabase
-        .from("blog_posts")
+        .from('blog_posts')
         .delete()
-        .eq("id", id);
+        .eq('id', id);
         
       if (error) {
         throw error;

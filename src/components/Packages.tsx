@@ -81,13 +81,13 @@ const Packages = () => {
     const fetchPlans = async () => {
       try {
         const { data, error } = await supabase
-          .from("plans")
-          .select("*")
-          .order("ram_gb", { ascending: true });
+          .from('plans')
+          .select('*')
+          .order('ram_gb', { ascending: true });
           
         if (error) throw error;
         
-        setPlans(data);
+        setPlans(data as Plan[]);
       } catch (err: any) {
         console.error("Error fetching plans:", err);
         setError(err.message);

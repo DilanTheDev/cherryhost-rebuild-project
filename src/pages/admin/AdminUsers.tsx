@@ -24,9 +24,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+interface UserProfile {
+  id: string;
+  full_name: string | null;
+  avatar_url: string | null;
+  is_admin: boolean | null;
+  created_at: string;
+}
+
 const AdminUsers = () => {
   const { user, profile, isLoading } = useAuth();
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<UserProfile[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
@@ -40,14 +48,14 @@ const AdminUsers = () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
-        .from("profiles")
-        .select("*");
+        .from('profiles')
+        .select('*');
         
       if (error) {
         throw error;
       }
       
-      setUsers(data || []);
+      setUsers(data as UserProfile[]);
     } catch (error: any) {
       toast({
         title: "Error",
@@ -62,9 +70,9 @@ const AdminUsers = () => {
   const handleToggleAdmin = async (userId: string, isCurrentlyAdmin: boolean) => {
     try {
       const { error } = await supabase
-        .from("profiles")
+        .from('profiles')
         .update({ is_admin: !isCurrentlyAdmin })
-        .eq("id", userId);
+        .eq('id', userId);
         
       if (error) {
         throw error;
