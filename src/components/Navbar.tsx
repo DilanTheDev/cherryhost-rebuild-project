@@ -25,7 +25,6 @@ const Navbar = () => {
           <Link to="/" className="text-white hover:text-cherry-400 transition-colors">Home</Link>
           <Link to="/products" className="text-white hover:text-cherry-400 transition-colors">Products</Link>
           <Link to="/game-panel" className="text-white hover:text-cherry-400 transition-colors">Game Panel</Link>
-          <Link to="/billing" className="text-white hover:text-cherry-400 transition-colors">Billing</Link>
           <Link to="/support" className="text-white hover:text-cherry-400 transition-colors">Support</Link>
           {user && <Link to="/dashboard" className="text-white hover:text-cherry-400 transition-colors">Dashboard</Link>}
           {isAdmin && <Link to="/admin/blog" className="text-cherry-400 hover:text-cherry-300 transition-colors">Admin</Link>}
@@ -57,7 +56,6 @@ const Navbar = () => {
                 <Link to="/" className="text-lg font-semibold hover:text-cherry-400 py-2">Home</Link>
                 <Link to="/products" className="text-lg font-semibold hover:text-cherry-400 py-2">Products</Link>
                 <Link to="/game-panel" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</Link>
-                <Link to="/billing" className="text-lg font-semibold hover:text-cherry-400 py-2">Billing</Link>
                 <Link to="/support" className="text-lg font-semibold hover:text-cherry-400 py-2">Support</Link>
                 {user && <Link to="/dashboard" className="text-lg font-semibold hover:text-cherry-400 py-2">Dashboard</Link>}
                 {isAdmin && <Link to="/admin/blog" className="text-lg font-semibold text-cherry-400 hover:text-cherry-300 py-2">Admin</Link>}

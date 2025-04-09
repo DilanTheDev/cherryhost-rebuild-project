@@ -8,7 +8,6 @@ import { AuthProvider } from "@/contexts/AuthContext";
 
 // Pages
 import Index from "./pages/Index";
-import Billing from "./pages/Billing";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -30,7 +29,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/billing" element={<Billing />} />
             
             {/* Dashboard Routes */}
             <Route path="/dashboard" element={<DashboardLayout />}>

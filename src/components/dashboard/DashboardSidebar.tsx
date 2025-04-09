@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { 
-  Home, Server, FileText, CreditCard, 
+  Home, Server, FileText, 
   Settings, HelpCircle, Users, PenTool,
   BarChart3
 } from "lucide-react";
@@ -38,10 +38,6 @@ const DashboardSidebar = () => {
         <Link to="/dashboard/invoices" className={`admin-sidebar-link ${isActive("/dashboard/invoices") ? "active" : ""}`}>
           <FileText size={20} />
           <span>Invoices</span>
-        </Link>
-        <Link to="/dashboard/billing" className={`admin-sidebar-link ${isActive("/dashboard/billing") ? "active" : ""}`}>
-          <CreditCard size={20} />
-          <span>Billing</span>
         </Link>
         <Link to="/dashboard/support" className={`admin-sidebar-link ${isActive("/dashboard/support") ? "active" : ""}`}>
           <HelpCircle size={20} />
