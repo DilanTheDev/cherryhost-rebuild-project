@@ -33,8 +33,26 @@ interface BlogPost {
   created_at: string;
   published: boolean;
   author: {
-    full_name: string;
-    avatar_url: string;
+    full_name: string | null;
+    avatar_url: string | null;
+  } | null;
+}
+
+interface SupabaseBlogPost {
+  id: string;
+  title: string;
+  created_at: string;
+  published: boolean;
+  author_id: string;
+  content: string;
+  excerpt: string | null;
+  featured_image: string | null;
+  published_at: string | null;
+  slug: string;
+  updated_at: string;
+  author: {
+    full_name: string | null;
+    avatar_url: string | null;
   } | null;
 }
 
@@ -62,7 +80,16 @@ const AdminBlog = () => {
         throw error;
       }
       
-      setPosts(data as BlogPost[]);
+      // Transform the data to match the BlogPost interface
+      const transformedPosts: BlogPost[] = (data as SupabaseBlogPost[]).map(post => ({
+        id: post.id,
+        title: post.title,
+        created_at: post.created_at,
+        published: post.published || false,
+        author: post.author
+      }));
+      
+      setPosts(transformedPosts);
     } catch (error: any) {
       toast({
         title: "Error",
