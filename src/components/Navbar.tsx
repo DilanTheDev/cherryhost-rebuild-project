@@ -24,8 +24,8 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-white hover:text-cherry-400 transition-colors">Home</Link>
           <Link to="/products" className="text-white hover:text-cherry-400 transition-colors">Products</Link>
-          <Link to="/game-panel" className="text-white hover:text-cherry-400 transition-colors">Game Panel</Link>
-          <Link to="/support" className="text-white hover:text-cherry-400 transition-colors">Support</Link>
+          <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Game Panel</a>
+          <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Billing</a>
           {user && <Link to="/dashboard" className="text-white hover:text-cherry-400 transition-colors">Dashboard</Link>}
           {isAdmin && <Link to="/admin/blog" className="text-cherry-400 hover:text-cherry-300 transition-colors">Admin</Link>}
         </div>
@@ -55,8 +55,8 @@ const Navbar = () => {
               <div className="flex flex-col gap-4 p-6">
                 <Link to="/" className="text-lg font-semibold hover:text-cherry-400 py-2">Home</Link>
                 <Link to="/products" className="text-lg font-semibold hover:text-cherry-400 py-2">Products</Link>
-                <Link to="/game-panel" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</Link>
-                <Link to="/support" className="text-lg font-semibold hover:text-cherry-400 py-2">Support</Link>
+                <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</a>
+                <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Billing</a>
                 {user && <Link to="/dashboard" className="text-lg font-semibold hover:text-cherry-400 py-2">Dashboard</Link>}
                 {isAdmin && <Link to="/admin/blog" className="text-lg font-semibold text-cherry-400 hover:text-cherry-300 py-2">Admin</Link>}
                 <div className="flex flex-col gap-2 mt-4">

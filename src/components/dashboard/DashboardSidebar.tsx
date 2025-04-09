@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { 
   Home, Server, FileText, 
-  Settings, HelpCircle, Users, PenTool,
-  BarChart3
+  Settings, Users, PenTool,
+  BarChart3, CreditCard
 } from "lucide-react";
 
 const DashboardSidebar = () => {
@@ -39,10 +39,14 @@ const DashboardSidebar = () => {
           <FileText size={20} />
           <span>Invoices</span>
         </Link>
-        <Link to="/dashboard/support" className={`admin-sidebar-link ${isActive("/dashboard/support") ? "active" : ""}`}>
-          <HelpCircle size={20} />
-          <span>Support</span>
-        </Link>
+        <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
+          <CreditCard size={20} />
+          <span>Billing</span>
+        </a>
+        <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
+          <Server size={20} />
+          <span>Game Panel</span>
+        </a>
         
         {isAdmin && (
           <>
@@ -75,12 +79,14 @@ const DashboardSidebar = () => {
         <div className="glass-card bg-cherry-900/20 p-4">
           <h4 className="text-white font-medium mb-2">Need help?</h4>
           <p className="text-white/70 text-sm">Our support team is here 24/7</p>
-          <Link 
-            to="/dashboard/support" 
+          <a 
+            href="https://billing.cherryhost.top/support" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="mt-2 text-cherry-400 text-sm font-medium hover:underline block"
           >
             Contact Support →
-          </Link>
+          </a>
         </div>
       </div>
     </aside>

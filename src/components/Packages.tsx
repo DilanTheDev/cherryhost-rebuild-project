@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -29,35 +28,42 @@ const PackageCard = ({
   type?: "skeleton" | "creeper" | "slime" | "pigman";
 }) => {
   return (
-    <div className={`package-card ${type} ${bestChoice ? 'border-bright' : 'border-white/10'}`}>
-      {bestChoice && <div className="best-choice">BEST CHOICE</div>}
-      <div className="mb-3">
-        <div className="bg-white/10 px-3 py-1 rounded-full w-fit">
-          <span className="text-white font-semibold">{plan.name}</span>
-        </div>
-      </div>
-      
-      <div className="flex items-baseline gap-2">
-        <span className="text-3xl font-bold text-white">{plan.ram_gb}GB</span>
-        <span className="text-white/70">RAM</span>
-      </div>
-      
-      <p className="text-white/70 text-sm my-3 h-12">
-        {plan.description}
-      </p>
-      
-      <div className="mt-4 space-y-3">
-        <div className="flex items-baseline gap-1">
-          <span className="text-white/70 text-sm">Starting at</span>
-          <span className="text-white font-bold">${plan.price.toFixed(2)}</span>
-          <span className="text-white/70 text-sm">/mo</span>
+    <div className={`relative rounded-xl bg-gradient-to-br from-midnight to-black border ${bestChoice ? 'border-cyan-400' : 'border-white/10'}`}>
+      <div className="p-6 flex flex-col">
+        {bestChoice && (
+          <div className="absolute top-0 right-0 bg-cyan-400 text-black text-xs font-bold py-1 px-3 rounded-tr-lg rounded-bl-lg">
+            BEST CHOICE
+          </div>
+        )}
+        
+        <div className="mb-4">
+          <div className={`inline-block px-3 py-1 rounded-full text-white ${type === 'slime' ? 'bg-green-600' : type === 'creeper' ? 'bg-green-700' : type === 'pigman' ? 'bg-pink-700' : 'bg-gray-700'}`}>
+            <span className="font-semibold">{plan.name}</span>
+          </div>
         </div>
         
-        <Link to="/auth">
-          <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
-            Order Now
-          </Button>
-        </Link>
+        <div className="flex items-baseline gap-2 mb-2">
+          <span className="text-5xl font-bold text-white">{plan.ram_gb}GB</span>
+          <span className="text-white/70">RAM</span>
+        </div>
+        
+        <p className="text-white/70 text-sm mb-6 min-h-[60px]">
+          {plan.description}
+        </p>
+        
+        <div className="mt-auto space-y-4">
+          <div className="flex items-baseline gap-1">
+            <span className="text-white/70 text-sm">Starting at</span>
+            <span className="text-white text-xl font-bold">${plan.price.toFixed(2)}</span>
+            <span className="text-white/70 text-sm">/mo</span>
+          </div>
+          
+          <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
+            <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
+              Order Now
+            </Button>
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -68,7 +74,6 @@ const Packages = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Get package types based on CPU model
   const getTypeForPlan = (index: number, model: string) => {
     const types = ["skeleton", "creeper", "slime", "pigman"];
     if (model.includes("Ryzen")) {

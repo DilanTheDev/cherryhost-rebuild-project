@@ -28,6 +28,14 @@ const GamePanel = () => {
             alt="CherryHost Game Panel" 
             className="w-full h-auto rounded-xl border border-white/10 shadow-xl shadow-black/20" 
           />
+          
+          <div className="flex justify-center mt-8">
+            <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-cherry-600 hover:bg-cherry-700 text-white">
+                Try Our Game Panel
+              </Button>
+            </a>
+          </div>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

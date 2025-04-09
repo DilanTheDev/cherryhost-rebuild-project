@@ -28,9 +28,11 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-cherry-600 hover:bg-cherry-700 text-white px-8 py-6 text-lg">
-                Order Now
-              </Button>
+              <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-cherry-600 hover:bg-cherry-700 text-white px-8 py-6 text-lg">
+                  Order Now
+                </Button>
+              </a>
               <span className="text-green-400 text-sm my-auto">Get 10% OFF on your first order with code: CHERRY</span>
             </div>
 
@@ -51,36 +53,37 @@ const Hero = () => {
           </div>
 
           <div className="w-full md:w-1/2 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <div className="bg-cherry-600 absolute top-4 right-4 w-full h-full rounded-xl opacity-25"></div>
-              <div className="glass-card absolute inset-0 p-6 flex flex-col">
-                <div className="flex items-center justify-between">
-                  <div className="bg-green-400/20 px-3 py-1 rounded-full">
-                    <span className="text-green-400 font-semibold">Slime</span>
+            <div className="relative w-64 h-auto md:w-80">
+              <div className="relative rounded-xl bg-gradient-to-br from-midnight to-black border border-white/10 p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="bg-green-600 px-3 py-1 rounded-full">
+                    <span className="text-white font-semibold">Slime</span>
                   </div>
-                  <div className="bg-bright px-2 py-0.5 rounded text-xs font-bold text-black">BEST CHOICE</div>
+                  <div className="bg-cyan-400 px-2 py-1 rounded text-xs font-bold text-black">BEST CHOICE</div>
                 </div>
                 
                 <div className="my-4 flex flex-col">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-white">5GB</span>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-5xl font-bold text-white">5GB</span>
                     <span className="text-white/70">RAM</span>
                   </div>
-                  <p className="text-white/70 text-sm mt-2">
+                  <p className="text-white/70 text-sm mt-2 mb-6">
                     The best package for vanilla or slightly modded gameplay.
                   </p>
                 </div>
 
-                <div className="mt-auto space-y-2">
+                <div className="mt-auto space-y-4">
                   <div className="flex items-baseline gap-1">
                     <span className="text-white/70 text-sm">Starting at</span>
-                    <span className="text-white font-bold">$15.99</span>
+                    <span className="text-white text-xl font-bold">$15.99</span>
                     <span className="text-white/70 text-sm">/mo</span>
                   </div>
                   
-                  <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
-                    Order Now
-                  </Button>
+                  <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
+                      Order Now
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
