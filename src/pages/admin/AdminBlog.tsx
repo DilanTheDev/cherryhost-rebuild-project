@@ -81,7 +81,7 @@ const AdminBlog = () => {
       }
       
       // Transform the data to match the BlogPost interface
-      const transformedPosts: BlogPost[] = (data as SupabaseBlogPost[]).map(post => ({
+      const transformedPosts: BlogPost[] = (data as any[]).map(post => ({
         id: post.id,
         title: post.title,
         created_at: post.created_at,
