@@ -55,7 +55,7 @@ const PlanCard = ({
         </div>
         <div className="flex items-center gap-2">
           <Cpu className="h-4 w-4 text-green-400" />
-          <span>{cpu}</span>
+          <span>1 vCPU Core{cpu !== "1" ? " (+" + cpu + " available as addon)" : ""}</span>
         </div>
         <div className="flex items-center gap-2">
           <Gauge className="h-4 w-4 text-green-400" />
@@ -94,14 +94,14 @@ const GamePanel = () => {
             name="Starter" 
             ram={4}
             storage={50}
-            cpu="2 vCPU Cores"
+            cpu="1"
             price={7.99}
           />
           <PlanCard 
             name="Standard" 
             ram={8}
             storage={75}
-            cpu="3 vCPU Cores"
+            cpu="2"
             price={13.99}
             bestChoice={true}
           />
@@ -109,14 +109,14 @@ const GamePanel = () => {
             name="Premium" 
             ram={12}
             storage={100}
-            cpu="4 vCPU Cores"
+            cpu="3"
             price={19.99}
           />
           <PlanCard 
             name="Ultimate" 
             ram={16}
             storage={150}
-            cpu="6 vCPU Cores"
+            cpu="5"
             price={24.99}
           />
         </div>

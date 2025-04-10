@@ -1,8 +1,8 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Server, Clock, Users, Zap } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 
 interface Plan {
@@ -12,7 +12,6 @@ interface Plan {
   price: number;
   ram_gb: number;
   storage_gb: number;
-  cpu_model: string;
   cpu_cores: number;
   bandwidth_tb: number;
   is_premium: boolean;
@@ -71,37 +70,90 @@ const PackageCard = ({
 
 const Packages = () => {
   const [plans, setPlans] = useState<Plan[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
-  const getTypeForPlan = (index: number, model: string) => {
+  const getTypeForPlan = (index: number) => {
     const types = ["skeleton", "creeper", "slime", "pigman"];
-    if (model.includes("Ryzen")) {
+    if (index >= 6) {
       return types[index % 2 + 2]; // Use slime or pigman for premium plans
     }
     return types[index % 2]; // Use skeleton or creeper for standard plans
   };
 
   useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('plans')
-          .select('*')
-          .order('ram_gb', { ascending: true });
-          
-        if (error) throw error;
-        
-        setPlans(data as Plan[]);
-      } catch (err: any) {
-        console.error("Error fetching plans:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
+    // Mock data since we're removing Supabase
+    const mockPlans = [
+      {
+        id: "1",
+        name: "Cherry Starter",
+        description: "Perfect for small vanilla servers with a few friends.",
+        price: 7.99,
+        ram_gb: 4,
+        storage_gb: 50,
+        cpu_cores: 1,
+        bandwidth_tb: 1,
+        is_premium: false
+      },
+      {
+        id: "2",
+        name: "Cherry Pie",
+        description: "Ideal for vanilla servers with moderate plugins.",
+        price: 13.99,
+        ram_gb: 8,
+        storage_gb: 75,
+        cpu_cores: 1,
+        bandwidth_tb: 2,
+        is_premium: false
+      },
+      {
+        id: "3",
+        name: "Wild Cherry",
+        description: "Great for modded servers and growing communities.",
+        price: 19.99,
+        ram_gb: 12,
+        storage_gb: 100,
+        cpu_cores: 1,
+        bandwidth_tb: 3,
+        is_premium: true
+      },
+      {
+        id: "4",
+        name: "Cherry Bomb",
+        description: "Ultimate power for large modpacks and busy servers.",
+        price: 24.99,
+        ram_gb: 16,
+        storage_gb: 150,
+        cpu_cores: 1,
+        bandwidth_tb: 4,
+        is_premium: true
+      },
+      {
+        id: "5",
+        name: "Black Cherry",
+        description: "For serious modpack enthusiasts with many players.",
+        price: 29.99,
+        ram_gb: 24,
+        storage_gb: 200,
+        cpu_cores: 1,
+        bandwidth_tb: 5,
+        is_premium: true
+      },
+      {
+        id: "6",
+        name: "Cherry King",
+        description: "Our most powerful plan for the largest communities.",
+        price: 39.99,
+        ram_gb: 32,
+        storage_gb: 300,
+        cpu_cores: 1,
+        bandwidth_tb: 10,
+        is_premium: true
       }
-    };
+    ];
     
-    fetchPlans();
+    setPlans(mockPlans);
+    setLoading(false);
   }, []);
 
   return (
@@ -142,12 +194,15 @@ const Packages = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {plans.map((plan, index) => (
+                {plans.filter(p => p.id <= "4").map((plan, index) => (
                   <PackageCard
                     key={plan.id}
-                    plan={plan}
+                    plan={{
+                      ...plan,
+                      description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
+                    }}
                     bestChoice={plan.name === "Cherry Pie"}
-                    type={getTypeForPlan(index, plan.cpu_model) as any}
+                    type={getTypeForPlan(index) as any}
                   />
                 ))}
               </div>
@@ -171,12 +226,15 @@ const Packages = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {plans.filter(p => p.ram_gb >= 4).map((plan, index) => (
+                {plans.filter(p => p.ram_gb >= 8).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
-                    plan={plan}
+                    plan={{
+                      ...plan,
+                      description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
+                    }}
                     bestChoice={plan.name === "Black Cherry"}
-                    type={getTypeForPlan(index, plan.cpu_model) as any}
+                    type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
               </div>
@@ -194,12 +252,15 @@ const Packages = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {plans.filter(p => p.ram_gb >= 6).map((plan, index) => (
+                {plans.filter(p => p.ram_gb >= 12).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
-                    plan={plan}
+                    plan={{
+                      ...plan,
+                      description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
+                    }}
                     bestChoice={plan.name === "Wild Cherry"}
-                    type={getTypeForPlan(index, plan.cpu_model) as any}
+                    type={getTypeForPlan(index + 2) as any}
                   />
                 ))}
               </div>
@@ -220,9 +281,12 @@ const Packages = () => {
                 {plans.filter(p => p.is_premium).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
-                    plan={plan}
+                    plan={{
+                      ...plan,
+                      description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
+                    }}
                     bestChoice={plan.name === "Cherry Bomb"}
-                    type={getTypeForPlan(index, plan.cpu_model) as any}
+                    type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
               </div>
