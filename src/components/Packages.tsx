@@ -1,13 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Server, Clock, Users, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface Plan {
   id: string;
-  name: string;
   description: string;
   price: number;
   ram_gb: number;
@@ -37,7 +34,7 @@ const PackageCard = ({
         
         <div className="mb-4">
           <div className={`inline-block px-3 py-1 rounded-full text-white ${type === 'slime' ? 'bg-green-600' : type === 'creeper' ? 'bg-green-700' : type === 'pigman' ? 'bg-pink-700' : 'bg-gray-700'}`}>
-            <span className="font-semibold">{plan.name}</span>
+            <span className="font-semibold">{plan.ram_gb}GB RAM</span>
           </div>
         </div>
         
@@ -86,7 +83,6 @@ const Packages = () => {
     const mockPlans = [
       {
         id: "1",
-        name: "Cherry Starter",
         description: "Perfect for small vanilla servers with a few friends.",
         price: 7.99,
         ram_gb: 4,
@@ -97,7 +93,6 @@ const Packages = () => {
       },
       {
         id: "2",
-        name: "Cherry Pie",
         description: "Ideal for vanilla servers with moderate plugins.",
         price: 13.99,
         ram_gb: 8,
@@ -108,7 +103,6 @@ const Packages = () => {
       },
       {
         id: "3",
-        name: "Wild Cherry",
         description: "Great for modded servers and growing communities.",
         price: 19.99,
         ram_gb: 12,
@@ -119,7 +113,6 @@ const Packages = () => {
       },
       {
         id: "4",
-        name: "Cherry Bomb",
         description: "Ultimate power for large modpacks and busy servers.",
         price: 24.99,
         ram_gb: 16,
@@ -130,7 +123,6 @@ const Packages = () => {
       },
       {
         id: "5",
-        name: "Black Cherry",
         description: "For serious modpack enthusiasts with many players.",
         price: 29.99,
         ram_gb: 24,
@@ -141,7 +133,6 @@ const Packages = () => {
       },
       {
         id: "6",
-        name: "Cherry King",
         description: "Our most powerful plan for the largest communities.",
         price: 39.99,
         ram_gb: 32,
