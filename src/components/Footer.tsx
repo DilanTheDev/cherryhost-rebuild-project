@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Github, Twitter, Youtube, Instagram } from "lucide-react";
@@ -46,8 +47,9 @@ const Footer = () => {
             <h3 className="font-bold mb-4">Clients</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-white/70 hover:text-cherry-400">Help & Guides</Link></li>
-              <li><Link to="#" className="text-white/70 hover:text-cherry-400">Game Panel</Link></li>
-              <li><Link to="#" className="text-white/70 hover:text-cherry-400">Billing Area</Link></li>
+              <li><a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-cherry-400">Game Panel</a></li>
+              <li><a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-cherry-400">Billing Area</a></li>
+              <li><a href="https://status.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-cherry-400">Server Status</a></li>
               <li><Link to="#" className="text-white/70 hover:text-cherry-400">Contact Us</Link></li>
             </ul>
           </div>

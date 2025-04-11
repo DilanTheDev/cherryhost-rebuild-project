@@ -23,6 +23,7 @@ const Navbar = () => {
           <Link to="/products" className="text-white hover:text-cherry-400 transition-colors">Products</Link>
           <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Game Panel</a>
           <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Billing</a>
+          <a href="https://status.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Status</a>
         </div>
         
         <div className="flex items-center gap-4">
@@ -41,6 +42,7 @@ const Navbar = () => {
                 <Link to="/products" className="text-lg font-semibold hover:text-cherry-400 py-2">Products</Link>
                 <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</a>
                 <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Billing</a>
+                <a href="https://status.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Status</a>
                 <div className="flex flex-col gap-2 mt-4">
                   <Button className="bg-cherry-600 hover:bg-cherry-700 justify-start">
                     <Link to="/#packages">Order Now</Link>
