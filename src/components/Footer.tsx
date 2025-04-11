@@ -32,6 +32,20 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </Link>
             </div>
+            
+            {/* Status Badge */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <p className="text-white/70 text-sm mb-2">Server Status:</p>
+              <iframe 
+                src="https://status.cherryhost.top/badge?theme=dark" 
+                width="250" 
+                height="30" 
+                frameBorder="0" 
+                scrolling="no" 
+                style={{ colorScheme: "normal" }} 
+                title="CherryHost Server Status"
+              />
+            </div>
           </div>
           
           <div>
