@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -50,7 +51,7 @@ const PackageCard = ({
         <div className="mt-auto space-y-4">
           <div className="flex items-baseline gap-1">
             <span className="text-white/70 text-sm">Starting at</span>
-            <span className="text-white text-xl font-bold">${plan.price.toFixed(2)}</span>
+            <span className="text-white text-xl font-bold">${plan.ram_gb.toFixed(2)}</span>
             <span className="text-white/70 text-sm">/mo</span>
           </div>
           
@@ -84,7 +85,7 @@ const Packages = () => {
       {
         id: "1",
         description: "Perfect for small vanilla servers with a few friends.",
-        price: 7.99,
+        price: 4, // $1/GB RAM
         ram_gb: 4,
         storage_gb: 50,
         cpu_cores: 1,
@@ -94,7 +95,7 @@ const Packages = () => {
       {
         id: "2",
         description: "Ideal for vanilla servers with moderate plugins.",
-        price: 13.99,
+        price: 8, // $1/GB RAM
         ram_gb: 8,
         storage_gb: 75,
         cpu_cores: 1,
@@ -104,7 +105,7 @@ const Packages = () => {
       {
         id: "3",
         description: "Great for modded servers and growing communities.",
-        price: 19.99,
+        price: 12, // $1/GB RAM
         ram_gb: 12,
         storage_gb: 100,
         cpu_cores: 1,
@@ -114,7 +115,7 @@ const Packages = () => {
       {
         id: "4",
         description: "Ultimate power for large modpacks and busy servers.",
-        price: 24.99,
+        price: 16, // $1/GB RAM
         ram_gb: 16,
         storage_gb: 150,
         cpu_cores: 1,
@@ -124,7 +125,7 @@ const Packages = () => {
       {
         id: "5",
         description: "For serious modpack enthusiasts with many players.",
-        price: 29.99,
+        price: 24, // $1/GB RAM
         ram_gb: 24,
         storage_gb: 200,
         cpu_cores: 1,
@@ -134,7 +135,7 @@ const Packages = () => {
       {
         id: "6",
         description: "Our most powerful plan for the largest communities.",
-        price: 39.99,
+        price: 32, // $1/GB RAM
         ram_gb: 32,
         storage_gb: 300,
         cpu_cores: 1,
@@ -192,7 +193,7 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={plan.name === "Cherry Pie"}
+                    bestChoice={index === 1}
                     type={getTypeForPlan(index) as any}
                   />
                 ))}
@@ -224,7 +225,7 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={plan.name === "Black Cherry"}
+                    bestChoice={index === 1}
                     type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
@@ -250,7 +251,7 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={plan.name === "Wild Cherry"}
+                    bestChoice={index === 0}
                     type={getTypeForPlan(index + 2) as any}
                   />
                 ))}
@@ -276,7 +277,7 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={plan.name === "Cherry Bomb"}
+                    bestChoice={index === 1}
                     type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
