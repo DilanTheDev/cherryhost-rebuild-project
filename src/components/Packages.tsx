@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -17,7 +16,6 @@ interface Plan {
 
 const PackageCard = ({ 
   plan, 
-  bestChoice = false,
   type = "skeleton"
 }: { 
   plan: Plan;
@@ -25,20 +23,8 @@ const PackageCard = ({
   type?: "skeleton" | "creeper" | "slime" | "pigman";
 }) => {
   return (
-    <div className={`relative rounded-xl bg-gradient-to-br from-midnight to-black border ${bestChoice ? 'border-cyan-400' : 'border-white/10'}`}>
-      <div className="p-6 flex flex-col">
-        {bestChoice && (
-          <div className="absolute top-0 right-0 bg-cyan-400 text-black text-xs font-bold py-1 px-3 rounded-tr-lg rounded-bl-lg">
-            BEST CHOICE
-          </div>
-        )}
-        
-        <div className="mb-4">
-          <div className={`inline-block px-3 py-1 rounded-full text-white ${type === 'slime' ? 'bg-green-600' : type === 'creeper' ? 'bg-green-700' : type === 'pigman' ? 'bg-pink-700' : 'bg-gray-700'}`}>
-            <span className="font-semibold">{plan.ram_gb}GB RAM</span>
-          </div>
-        </div>
-        
+    <div className="relative rounded-xl bg-gradient-to-br from-midnight to-black border border-white/10">
+      <div className="p-6 flex flex-col">        
         <div className="flex items-baseline gap-2 mb-2">
           <span className="text-5xl font-bold text-white">{plan.ram_gb}GB</span>
           <span className="text-white/70">RAM</span>
@@ -80,7 +66,6 @@ const Packages = () => {
   };
 
   useEffect(() => {
-    // Mock data since we're removing Supabase
     const mockPlans = [
       {
         id: "1",
@@ -193,7 +178,6 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={index === 1}
                     type={getTypeForPlan(index) as any}
                   />
                 ))}
@@ -225,7 +209,6 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={index === 1}
                     type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
@@ -251,7 +234,6 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={index === 0}
                     type={getTypeForPlan(index + 2) as any}
                   />
                 ))}
@@ -277,7 +259,6 @@ const Packages = () => {
                       ...plan,
                       description: plan.description + (plan.cpu_cores > 1 ? "" : " 1 vCPU core included with additional cores available as addons.")
                     }}
-                    bestChoice={index === 1}
                     type={getTypeForPlan(index + 4) as any}
                   />
                 ))}
