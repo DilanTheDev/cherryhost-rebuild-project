@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Server, Clock, Users, Zap } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Plan {
   id: string;
@@ -24,25 +26,25 @@ const PackageCard = ({
 }) => {
   return (
     <div className="relative rounded-xl bg-gradient-to-br from-midnight to-black border border-white/10">
-      <div className="p-6 flex flex-col">        
+      <div className="p-4 sm:p-6 flex flex-col h-full">        
         <div className="flex items-baseline gap-2 mb-2">
-          <span className="text-5xl font-bold text-white">{plan.ram_gb}GB</span>
+          <span className="text-4xl sm:text-5xl font-bold text-white">{plan.ram_gb}GB</span>
           <span className="text-white/70">RAM</span>
         </div>
         
-        <p className="text-white/70 text-sm mb-6 min-h-[60px]">
+        <p className="text-white/70 text-sm mb-4 sm:mb-6 min-h-[60px]">
           {plan.description}
         </p>
         
-        <div className="mt-auto space-y-4">
+        <div className="mt-auto space-y-3 sm:space-y-4">
           <div className="flex items-baseline gap-1">
             <span className="text-white/70 text-sm">Starting at</span>
-            <span className="text-white text-xl font-bold">${plan.ram_gb.toFixed(2)}</span>
+            <span className="text-white text-lg sm:text-xl font-bold">${plan.ram_gb.toFixed(2)}</span>
             <span className="text-white/70 text-sm">/mo</span>
           </div>
           
           <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
-            <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
+            <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium py-2">
               Order Now
             </Button>
           </a>
@@ -56,6 +58,7 @@ const Packages = () => {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isMobile = useIsMobile();
   
   const getTypeForPlan = (index: number) => {
     const types = ["skeleton", "creeper", "slime", "pigman"];
@@ -134,27 +137,27 @@ const Packages = () => {
   }, []);
 
   return (
-    <div className="bg-midnight py-16" id="packages">
+    <div className="bg-midnight py-12 sm:py-16" id="packages">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-white text-center mb-12">Choose Your Perfect Server Package</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8 sm:mb-12">Choose Your Perfect Server Package</h2>
         
         <Tabs defaultValue="vanilla" className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList className="bg-black/30 border border-white/10">
-              <TabsTrigger value="vanilla" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white">
-                <Server className="w-4 h-4 mr-2" />
+          <div className="flex justify-center mb-6 sm:mb-8 overflow-x-auto">
+            <TabsList className={`bg-black/30 border border-white/10 ${isMobile ? 'w-full' : ''}`}>
+              <TabsTrigger value="vanilla" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white text-xs sm:text-sm">
+                <Server className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Vanilla
               </TabsTrigger>
-              <TabsTrigger value="modded" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white">
-                <Zap className="w-4 h-4 mr-2" />
+              <TabsTrigger value="modded" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white text-xs sm:text-sm">
+                <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Modded
               </TabsTrigger>
-              <TabsTrigger value="smp" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white">
-                <Users className="w-4 h-4 mr-2" />
-                SMP/Community
+              <TabsTrigger value="smp" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white text-xs sm:text-sm">
+                <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                SMP
               </TabsTrigger>
-              <TabsTrigger value="modpacks" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white">
-                <Clock className="w-4 h-4 mr-2" />
+              <TabsTrigger value="modpacks" className="data-[state=active]:bg-cherry-600 data-[state=active]:text-white text-xs sm:text-sm">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Modpacks
               </TabsTrigger>
             </TabsList>
@@ -170,7 +173,7 @@ const Packages = () => {
                 Failed to load plans. Please try again later.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {plans.filter(p => p.id <= "4").map((plan, index) => (
                   <PackageCard
                     key={plan.id}
@@ -184,8 +187,8 @@ const Packages = () => {
               </div>
             )}
             
-            <div className="flex justify-center mt-10">
-              <Button variant="outline" className="border-bright text-bright hover:bg-bright hover:text-black">
+            <div className="flex justify-center mt-6 sm:mt-10">
+              <Button variant="outline" className="border-bright text-bright hover:bg-bright hover:text-black text-sm sm:text-base">
                 Show all packages
               </Button>
             </div>
@@ -201,7 +204,7 @@ const Packages = () => {
                 Failed to load plans. Please try again later.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {plans.filter(p => p.ram_gb >= 8).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
@@ -226,7 +229,7 @@ const Packages = () => {
                 Failed to load plans. Please try again later.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {plans.filter(p => p.ram_gb >= 12).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
@@ -251,7 +254,7 @@ const Packages = () => {
                 Failed to load plans. Please try again later.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {plans.filter(p => p.is_premium).map((plan, index) => (
                   <PackageCard
                     key={plan.id}
