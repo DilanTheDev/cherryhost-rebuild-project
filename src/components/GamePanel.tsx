@@ -130,7 +130,7 @@ const GamePanel = () => {
             </div>
             
             <div className="flex justify-center">
-              <a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer">
+              <a href="https://panel.lightninghost.pro" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-yellow-600 hover:bg-yellow-700 text-white">
                   Try Our Game Panel
                 </Button>

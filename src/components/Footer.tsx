@@ -37,7 +37,7 @@ const Footer = () => {
             <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-white/70 text-sm mb-2">Server Status:</p>
               <iframe 
-                src="https://status.lightninghost.top/badge?theme=dark" 
+                src="https://status.lightninghost.pro/badge?theme=dark" 
                 width="250" 
                 height="30" 
                 frameBorder="0" 
@@ -61,9 +61,9 @@ const Footer = () => {
             <h3 className="font-bold mb-4">Clients</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-white/70 hover:text-lightning-400">Help & Guides</Link></li>
-              <li><a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Game Panel</a></li>
-              <li><a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Billing Area</a></li>
-              <li><a href="https://status.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Server Status</a></li>
+              <li><a href="https://panel.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Game Panel</a></li>
+              <li><a href="https://billing.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Billing Area</a></li>
+              <li><a href="https://status.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-lightning-400">Server Status</a></li>
               <li><Link to="#" className="text-white/70 hover:text-lightning-400">Contact Us</Link></li>
             </ul>
           </div>
