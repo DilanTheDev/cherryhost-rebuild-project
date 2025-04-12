@@ -9,7 +9,7 @@ const DashboardHeader = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" 
+            src="/lovable-uploads/b14d89d5-320d-4ab8-bc5e-733ab34ecab2.png" 
             alt="LightningHost Logo" 
             className="h-8" 
           />

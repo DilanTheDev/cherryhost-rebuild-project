@@ -17,7 +17,7 @@ const DashboardSidebar = () => {
     <aside className="admin-sidebar p-4 h-screen overflow-y-auto">
       <div className="flex items-center gap-3 mb-10 p-2">
         <img 
-          src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" 
+          src="/lovable-uploads/b14d89d5-320d-4ab8-bc5e-733ab34ecab2.png" 
           alt="LightningHost Logo" 
           className="h-10" 
         />
@@ -74,7 +74,7 @@ const DashboardSidebar = () => {
           <h4 className="text-white font-medium mb-2">Need help?</h4>
           <p className="text-white/70 text-sm">Our support team is here 24/7</p>
           <a 
-            href="https://billing.lightninghost.top/support" 
+            href="https://billing.lightninghost.pro" 
             target="_blank" 
             rel="noopener noreferrer"
             className="mt-2 text-lightning-400 text-sm font-medium hover:underline block"

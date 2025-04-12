@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" alt="LightningHost Logo" className="h-12" />
+            <img src="/lovable-uploads/b14d89d5-320d-4ab8-bc5e-733ab34ecab2.png" alt="LightningHost Logo" className="h-12" />
           </Link>
         </div>
         
@@ -40,9 +40,9 @@ const Navbar = () => {
               <div className="flex flex-col gap-4 p-6">
                 <Link to="/" className="text-lg font-semibold hover:text-lightning-400 py-2">Home</Link>
                 <Link to="/products" className="text-lg font-semibold hover:text-lightning-400 py-2">Products</Link>
-                <a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Game Panel</a>
-                <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Billing</a>
-                <a href="https://status.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Status</a>
+                <a href="https://panel.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Game Panel</a>
+                <a href="https://billing.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Billing</a>
+                <a href="https://status.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Status</a>
                 <div className="flex flex-col gap-2 mt-4">
                   <Button className="bg-lightning-500 hover:bg-lightning-600 text-black justify-start">
                     <Link to="/#packages">Order Now</Link>
