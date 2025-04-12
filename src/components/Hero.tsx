@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { StarIcon } from "lucide-react";
+import { StarIcon, Zap } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -28,25 +28,25 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-cherry-600 hover:bg-cherry-700 text-white px-8 py-6 text-lg">
+              <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-lightning-500 hover:bg-lightning-600 text-black px-8 py-6 text-lg">
                   Order Now
                 </Button>
               </a>
-              <span className="text-green-400 text-sm my-auto">Get 10% OFF on your first order with code: CHERRY</span>
+              <span className="text-yellow-400 text-sm my-auto">Get 10% OFF on your first order with code: LIGHTNING</span>
             </div>
 
             <div className="flex flex-wrap gap-8 text-white/70">
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 bg-green-400 rounded-full"></div>
+                <div className="h-2 w-2 bg-lightning-400 rounded-full"></div>
                 <span>Java & Bedrock Edition Servers</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 bg-green-400 rounded-full"></div>
+                <div className="h-2 w-2 bg-lightning-400 rounded-full"></div>
                 <span>More than 7500 Modpacks</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 bg-green-400 rounded-full"></div>
+                <div className="h-2 w-2 bg-lightning-400 rounded-full"></div>
                 <span>24/7 Technical Support</span>
               </div>
             </div>
@@ -56,10 +56,10 @@ const Hero = () => {
             <div className="relative w-64 h-auto md:w-80">
               <div className="relative rounded-xl bg-gradient-to-br from-midnight to-black border border-white/10 p-6 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="bg-green-600 px-3 py-1 rounded-full">
-                    <span className="text-white font-semibold">Slime</span>
+                  <div className="bg-lightning-500 px-3 py-1 rounded-full">
+                    <span className="text-black font-semibold">Slime</span>
                   </div>
-                  <div className="bg-cyan-400 px-2 py-1 rounded text-xs font-bold text-black">BEST CHOICE</div>
+                  <div className="bg-lightning-400 px-2 py-1 rounded text-xs font-bold text-black">BEST CHOICE</div>
                 </div>
                 
                 <div className="my-4 flex flex-col">
@@ -79,8 +79,8 @@ const Hero = () => {
                     <span className="text-white/70 text-sm">/mo</span>
                   </div>
                   
-                  <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-green-500 hover:bg-green-600 text-black font-medium">
+                  <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-lightning-500 hover:bg-lightning-600 text-black font-medium">
                       Order Now
                     </Button>
                   </a>

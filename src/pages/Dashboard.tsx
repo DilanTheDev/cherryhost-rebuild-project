@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Server, Clock, FileText, AlertTriangle } from "lucide-react";
+import { Server, Clock, FileText, AlertTriangle, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -37,22 +37,22 @@ const Dashboard = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-white">Welcome!</h1>
-        <Button className="bg-cherry-600 hover:bg-cherry-700">
+        <Button className="bg-lightning-500 hover:bg-lightning-600 text-black">
           Order New Server
         </Button>
       </div>
 
       {isLoading ? (
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cherry-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-lightning-500"></div>
         </div>
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             <Card className="admin-card">
               <div className="flex items-center">
-                <div className="bg-cherry-600/20 p-3 rounded-lg">
-                  <Server size={24} className="text-cherry-500" />
+                <div className="bg-lightning-500/20 p-3 rounded-lg">
+                  <Server size={24} className="text-lightning-500" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm text-gray-400">Active Servers</p>
@@ -102,10 +102,10 @@ const Dashboard = () => {
             <h2 className="text-xl font-bold text-white">Your Servers</h2>
             
             <div className="admin-card py-12 text-center">
-              <Server size={48} className="text-gray-500 mx-auto mb-4" />
+              <Zap size={48} className="text-lightning-500 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">No Servers Yet</h3>
               <p className="text-gray-400 mb-6">Get started by ordering your first Minecraft server</p>
-              <Button className="bg-cherry-600 hover:bg-cherry-700">
+              <Button className="bg-lightning-500 hover:bg-lightning-600 text-black">
                 Order New Server
               </Button>
             </div>

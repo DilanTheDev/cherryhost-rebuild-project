@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Bell } from "lucide-react";
+import { Bell, Zap } from "lucide-react";
 
 const DashboardHeader = () => {
   return (
@@ -9,11 +9,11 @@ const DashboardHeader = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/b6227ae5-fade-458d-b4e9-27a0bed3ca08.png" 
-            alt="CherryHost Logo" 
+            src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" 
+            alt="LightningHost Logo" 
             className="h-8" 
           />
-          <span className="text-white font-bold">CherryHost</span>
+          <span className="text-white font-bold">LightningHost</span>
         </div>
         
         <div className="flex items-center gap-4">

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Zap } from "lucide-react";
 
 const Auth = () => {
   const { user, isLoading, signIn, signUp } = useAuth();
@@ -56,11 +57,11 @@ const Auth = () => {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <img
-              src="/lovable-uploads/b6227ae5-fade-458d-b4e9-27a0bed3ca08.png"
-              alt="CherryHost Logo"
+              src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png"
+              alt="LightningHost Logo"
               className="h-16 mx-auto mb-4"
             />
-            <h1 className="text-3xl font-bold text-white">Welcome to CherryHost</h1>
+            <h1 className="text-3xl font-bold text-white">Welcome to LightningHost</h1>
             <p className="text-gray-400 mt-2">
               Premium Minecraft server hosting at affordable prices
             </p>
@@ -90,7 +91,7 @@ const Auth = () => {
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <Label htmlFor="login-password" className="text-white">Password</Label>
-                      <Button variant="link" className="text-cherry-400 px-0" type="button">
+                      <Button variant="link" className="text-lightning-400 px-0" type="button">
                         Forgot password?
                       </Button>
                     </div>
@@ -106,7 +107,7 @@ const Auth = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-cherry-600 hover:bg-cherry-700"
+                    className="w-full bg-lightning-500 hover:bg-lightning-600 text-black"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Signing in..." : "Sign in"}
@@ -155,7 +156,7 @@ const Auth = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-cherry-600 hover:bg-cherry-700"
+                    className="w-full bg-lightning-500 hover:bg-lightning-600 text-black"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Creating account..." : "Create account"}
@@ -168,11 +169,11 @@ const Auth = () => {
           <div className="text-center mt-8 text-gray-400 text-sm">
             <p>
               By using our services, you agree to our{" "}
-              <a href="#" className="text-cherry-400 hover:underline">
+              <a href="#" className="text-lightning-400 hover:underline">
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a href="#" className="text-cherry-400 hover:underline">
+              <a href="#" className="text-lightning-400 hover:underline">
                 Privacy Policy
               </a>
               .

@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 348 84% 57%; /* Cherry color */
-    --primary-foreground: 0 0% 100%;
+    --primary: 42 100% 50%; /* Lightning yellow color */
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -31,18 +31,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 348 84% 57%;  /* Cherry color for focus rings */
+    --ring: 42 100% 50%;  /* Lightning yellow color for focus rings */
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 348 84% 57%;  /* Cherry color */
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 42 100% 50%;  /* Lightning yellow color */
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 348 84% 57%;  /* Cherry color */
+    --sidebar-ring: 42 100% 50%;  /* Lightning yellow color */
   }
 
   .dark {
@@ -55,8 +55,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 348 84% 57%; /* Cherry color */
-    --primary-foreground: 0 0% 100%;
+    --primary: 42 100% 50%; /* Lightning yellow color */
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -72,7 +72,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 348 84% 57%; /* Cherry color for focus rings */
+    --ring: 42 100% 50%; /* Lightning yellow color for focus rings */
   }
 }
 
@@ -108,7 +108,7 @@
 }
 
 .package-card.pigman::before {
-  @apply bg-cherry-600;
+  @apply bg-lightning-600;
 }
 
 .best-choice {
@@ -124,15 +124,15 @@
 }
 
 .admin-sidebar {
-  @apply bg-midnight border-r border-cherry-900/20;
+  @apply bg-midnight border-r border-lightning-900/20;
 }
 
 .admin-sidebar-link {
-  @apply flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-cherry-600/20 rounded-lg transition-colors;
+  @apply flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-lightning-600/20 rounded-lg transition-colors;
 }
 
 .admin-sidebar-link.active {
-  @apply bg-cherry-600/20 text-white;
+  @apply bg-lightning-600/20 text-white;
 }
 
 .admin-content {

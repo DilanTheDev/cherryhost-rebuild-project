@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "CherryHost - Minecraft Server Hosting Made Easy";
+    document.title = "LightningHost - Minecraft Server Hosting Made Easy";
   }, []);
 
   return (

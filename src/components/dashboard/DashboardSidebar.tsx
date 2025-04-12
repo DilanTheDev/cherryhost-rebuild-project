@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { 
   Home, Server, FileText, 
   Settings, Users, PenTool,
-  BarChart3, CreditCard
+  BarChart3, CreditCard, Zap
 } from "lucide-react";
 
 const DashboardSidebar = () => {
@@ -17,11 +17,11 @@ const DashboardSidebar = () => {
     <aside className="admin-sidebar p-4 h-screen overflow-y-auto">
       <div className="flex items-center gap-3 mb-10 p-2">
         <img 
-          src="/lovable-uploads/b6227ae5-fade-458d-b4e9-27a0bed3ca08.png" 
-          alt="CherryHost Logo" 
+          src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" 
+          alt="LightningHost Logo" 
           className="h-10" 
         />
-        <span className="text-white text-xl font-bold">CherryHost</span>
+        <span className="text-white text-xl font-bold">LightningHost</span>
       </div>
       
       <nav className="space-y-1">
@@ -37,11 +37,11 @@ const DashboardSidebar = () => {
           <FileText size={20} />
           <span>Invoices</span>
         </Link>
-        <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
+        <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
           <CreditCard size={20} />
           <span>Billing</span>
         </a>
-        <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
+        <a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer" className="admin-sidebar-link">
           <Server size={20} />
           <span>Game Panel</span>
         </a>
@@ -70,14 +70,14 @@ const DashboardSidebar = () => {
       </nav>
       
       <div className="mt-auto pt-6">
-        <div className="glass-card bg-cherry-900/20 p-4">
+        <div className="glass-card bg-lightning-900/20 p-4">
           <h4 className="text-white font-medium mb-2">Need help?</h4>
           <p className="text-white/70 text-sm">Our support team is here 24/7</p>
           <a 
-            href="https://billing.cherryhost.top/support" 
+            href="https://billing.lightninghost.top/support" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="mt-2 text-cherry-400 text-sm font-medium hover:underline block"
+            className="mt-2 text-lightning-400 text-sm font-medium hover:underline block"
           >
             Contact Support →
           </a>

@@ -6,7 +6,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Zap } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -14,20 +14,20 @@ const Navbar = () => {
       <div className="container mx-auto py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/lovable-uploads/b6227ae5-fade-458d-b4e9-27a0bed3ca08.png" alt="CherryHost Logo" className="h-12" />
+            <img src="/lovable-uploads/e84b5a6f-3c5e-43d2-9b14-63c64bf4391b.png" alt="LightningHost Logo" className="h-12" />
           </Link>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-white hover:text-cherry-400 transition-colors">Home</Link>
-          <Link to="/products" className="text-white hover:text-cherry-400 transition-colors">Products</Link>
-          <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Game Panel</a>
-          <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Billing</a>
-          <a href="https://status.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cherry-400 transition-colors">Status</a>
+          <Link to="/" className="text-white hover:text-lightning-400 transition-colors">Home</Link>
+          <Link to="/products" className="text-white hover:text-lightning-400 transition-colors">Products</Link>
+          <a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors">Game Panel</a>
+          <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors">Billing</a>
+          <a href="https://status.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors">Status</a>
         </div>
         
         <div className="flex items-center gap-4">
-          <Button className="bg-cherry-600 hover:bg-cherry-700 text-white">
+          <Button className="bg-lightning-500 hover:bg-lightning-600 text-black">
             <Link to="/#packages">Order Now</Link>
           </Button>
           <Sheet>
@@ -38,13 +38,13 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="bg-midnight border-white/10 text-white p-0">
               <div className="flex flex-col gap-4 p-6">
-                <Link to="/" className="text-lg font-semibold hover:text-cherry-400 py-2">Home</Link>
-                <Link to="/products" className="text-lg font-semibold hover:text-cherry-400 py-2">Products</Link>
-                <a href="https://panel.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Game Panel</a>
-                <a href="https://billing.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Billing</a>
-                <a href="https://status.cherryhost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-cherry-400 py-2">Status</a>
+                <Link to="/" className="text-lg font-semibold hover:text-lightning-400 py-2">Home</Link>
+                <Link to="/products" className="text-lg font-semibold hover:text-lightning-400 py-2">Products</Link>
+                <a href="https://panel.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Game Panel</a>
+                <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Billing</a>
+                <a href="https://status.lightninghost.top" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:text-lightning-400 py-2">Status</a>
                 <div className="flex flex-col gap-2 mt-4">
-                  <Button className="bg-cherry-600 hover:bg-cherry-700 justify-start">
+                  <Button className="bg-lightning-500 hover:bg-lightning-600 text-black justify-start">
                     <Link to="/#packages">Order Now</Link>
                   </Button>
                 </div>
