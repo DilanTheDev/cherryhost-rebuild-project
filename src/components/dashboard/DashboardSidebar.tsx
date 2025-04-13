@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { 
   Home, Server, FileText, 
-  Settings, Users, PenTool,
+  Settings, PenTool,
   BarChart3, CreditCard, Zap
 } from "lucide-react";
 
@@ -51,10 +51,6 @@ const DashboardSidebar = () => {
             Admin
           </p>
         </div>
-        <Link to="/admin/users" className={`admin-sidebar-link ${isActive("/admin/users") ? "active" : ""}`}>
-          <Users size={20} />
-          <span>Users</span>
-        </Link>
         <Link to="/admin/blog" className={`admin-sidebar-link ${isActive("/admin/blog") ? "active" : ""}`}>
           <PenTool size={20} />
           <span>Blog</span>

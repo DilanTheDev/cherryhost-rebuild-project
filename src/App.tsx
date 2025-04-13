@@ -10,7 +10,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import AdminBlog from "./pages/admin/AdminBlog";
-import AdminUsers from "./pages/admin/AdminUsers";
 
 // Layouts
 import DashboardLayout from "./components/dashboard/DashboardLayout";
@@ -34,7 +33,6 @@ const App = () => (
           
           {/* Admin Routes */}
           <Route path="/admin" element={<DashboardLayout />}>
-            <Route path="users" element={<AdminUsers />} />
             <Route path="blog" element={<AdminBlog />} />
             {/* Add more admin routes here */}
           </Route>
