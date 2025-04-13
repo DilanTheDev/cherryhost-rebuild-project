@@ -1,16 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-
 const Navbar = () => {
-  return (
-    <div className="w-full bg-midnight sticky top-0 z-50 border-b border-white/10">
+  return <div className="w-full bg-midnight sticky top-0 z-50 border-b border-white/10">
       <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
@@ -20,7 +13,7 @@ const Navbar = () => {
         
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           <Link to="/" className="text-white hover:text-lightning-400 transition-colors text-sm lg:text-base">Home</Link>
-          <Link to="/products" className="text-white hover:text-lightning-400 transition-colors text-sm lg:text-base">Products</Link>
+          
           <a href="https://panel.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors text-sm lg:text-base">Game Panel</a>
           <a href="https://billing.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors text-sm lg:text-base">Billing</a>
           <a href="https://status.lightninghost.pro" target="_blank" rel="noopener noreferrer" className="text-white hover:text-lightning-400 transition-colors text-sm lg:text-base">Status</a>
@@ -53,8 +46,6 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Navbar;
