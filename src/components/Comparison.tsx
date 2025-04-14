@@ -1,6 +1,4 @@
-
 import { Zap, Server } from "lucide-react";
-
 interface Competitor {
   name: string;
   cpu: string;
@@ -10,53 +8,46 @@ interface Competitor {
   pricePerGb: string;
   performanceScore: number;
 }
-
-const competitors: Competitor[] = [
-  {
-    name: "Lightning Host",
-    cpu: "Ryzen 9 5950X",
-    memory: "DDR4 RAM",
-    storage: "NVMe",
-    network: "1Gbps",
-    pricePerGb: "$1",
-    performanceScore: 100,
-  },
-  {
-    name: "Apex Hosting",
-    cpu: "AMD Ryzen 7 5800X",
-    memory: "DDR4 RAM",
-    storage: "SSD",
-    network: "1Gbps",
-    pricePerGb: "$5",
-    performanceScore: 65,
-  },
-  {
-    name: "Bisect Hosting",
-    cpu: "Intel Xeon E5-2643",
-    memory: "DDR4 RAM",
-    storage: "SSD",
-    network: "1Gbps",
-    pricePerGb: "$5",
-    performanceScore: 45,
-  },
-  {
-    name: "Shockbyte",
-    cpu: "Intel Xeon E-2236",
-    memory: "DDR4 RAM",
-    storage: "SSD",
-    network: "1Gbps",
-    pricePerGb: "$3",
-    performanceScore: 30,
-  },
-];
-
-const CompetitorRow = ({ competitor }: { competitor: Competitor }) => {
+const competitors: Competitor[] = [{
+  name: "Lightning Host",
+  cpu: "Ryzen 9 5950X",
+  memory: "DDR4 RAM",
+  storage: "NVMe",
+  network: "1Gbps",
+  pricePerGb: "$1",
+  performanceScore: 100
+}, {
+  name: "Apex Hosting",
+  cpu: "AMD Ryzen 7 5800X",
+  memory: "DDR4 RAM",
+  storage: "SSD",
+  network: "1Gbps",
+  pricePerGb: "$5",
+  performanceScore: 65
+}, {
+  name: "Bisect Hosting",
+  cpu: "Intel Xeon E5-2643",
+  memory: "DDR4 RAM",
+  storage: "SSD",
+  network: "1Gbps",
+  pricePerGb: "$5",
+  performanceScore: 45
+}, {
+  name: "Shockbyte",
+  cpu: "Intel Xeon E-2236",
+  memory: "DDR4 RAM",
+  storage: "SSD",
+  network: "1Gbps",
+  pricePerGb: "$3",
+  performanceScore: 30
+}];
+const CompetitorRow = ({
+  competitor
+}: {
+  competitor: Competitor;
+}) => {
   const isLightningHost = competitor.name === "Lightning Host";
-  
-  return (
-    <div className={`flex items-center gap-4 p-4 rounded-lg transition-all ${
-      isLightningHost ? 'bg-lightning-500/10 border border-lightning-500/20' : 'hover:bg-white/5'
-    }`}>
+  return <div className={`flex items-center gap-4 p-4 rounded-lg transition-all ${isLightningHost ? 'bg-lightning-500/10 border border-lightning-500/20' : 'hover:bg-white/5'}`}>
       <div className="w-48">
         <h3 className={`font-semibold ${isLightningHost ? 'text-lightning-400' : 'text-white'}`}>
           {competitor.name}
@@ -83,20 +74,16 @@ const CompetitorRow = ({ competitor }: { competitor: Competitor }) => {
       
       <div className="w-48">
         <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-          <div 
-            className={`h-full rounded-full ${isLightningHost ? 'bg-lightning-500' : 'bg-white/30'}`}
-            style={{ width: `${competitor.performanceScore}%` }}
-          />
+          <div className={`h-full rounded-full ${isLightningHost ? 'bg-lightning-500' : 'bg-white/30'}`} style={{
+          width: `${competitor.performanceScore}%`
+        }} />
         </div>
         <div className="text-right text-sm text-white/50 mt-1">{competitor.performanceScore}%</div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const Comparison = () => {
-  return (
-    <div className="bg-midnight py-16">
+  return <div className="bg-midnight py-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
           <Zap className="h-6 w-6 text-lightning-400" />
@@ -104,17 +91,11 @@ const Comparison = () => {
         </div>
         
         <div className="space-y-2">
-          {competitors.map((competitor, index) => (
-            <CompetitorRow key={index} competitor={competitor} />
-          ))}
+          {competitors.map((competitor, index) => <CompetitorRow key={index} competitor={competitor} />)}
         </div>
         
-        <p className="text-white/50 text-sm mt-6">
-          * Performance scores based on CPU benchmark results and real-world Minecraft server performance tests
-        </p>
+        <p className="text-white/50 text-sm mt-6">* Please contact us if the info is inaccurate.</p>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Comparison;
