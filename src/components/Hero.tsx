@@ -1,18 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { StarIcon, Zap } from "lucide-react";
-
 const Hero = () => {
-  return (
-    <div className="relative bg-gradient-to-b from-midnight to-black py-12 sm:py-16 md:py-24 overflow-hidden">
+  return <div className="relative bg-gradient-to-b from-midnight to-black py-12 sm:py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="w-full md:w-1/2 space-y-4 sm:space-y-6">
             <div className="flex items-center gap-2 bg-white/10 px-3 py-1 sm:px-4 sm:py-2 rounded-full w-fit">
               <div className="flex">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <StarIcon key={star} className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />
-                ))}
+                {[1, 2, 3, 4, 5].map(star => <StarIcon key={star} className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />)}
               </div>
               <span className="text-white/80 text-xs sm:text-sm">638 reviews on Trustpilot</span>
             </div>
@@ -57,9 +52,9 @@ const Hero = () => {
               <div className="relative rounded-xl bg-gradient-to-br from-midnight to-black border border-white/10 p-4 sm:p-6 flex flex-col">
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <div className="bg-lightning-500 px-2 sm:px-3 py-1 rounded-full">
-                    <span className="text-black font-semibold text-sm">Slime</span>
+                    <span className="text-black font-semibold text-sm">BEST VALUE</span>
                   </div>
-                  <div className="bg-lightning-400 px-2 py-1 rounded text-xs font-bold text-black">BEST CHOICE</div>
+                  <div className="bg-lightning-400 px-2 py-1 rounded text-xs font-bold text-black">MOST POPULAR</div>
                 </div>
                 
                 <div className="my-3 sm:my-4 flex flex-col">
@@ -75,7 +70,7 @@ const Hero = () => {
                 <div className="mt-auto space-y-3 sm:space-y-4">
                   <div className="flex items-baseline gap-1">
                     <span className="text-white/70 text-sm">Starting at</span>
-                    <span className="text-white text-xl font-bold">$15.99</span>
+                    <span className="text-white text-xl font-bold">$5</span>
                     <span className="text-white/70 text-sm">/mo</span>
                   </div>
                   
@@ -90,8 +85,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
