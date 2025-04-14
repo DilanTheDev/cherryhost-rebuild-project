@@ -36,14 +36,14 @@ const testimonials: Testimonial[] = [
     rating: 5,
     title: "Amazing",
     text: "This is by far the best server hosting company I have ever used. They have AMAZING support and good prices. I've been using Cherry hosting for a couple of..."
-  }
+  },
   {
     name: "Trustpilot Reviewer",
     date: "11th of October 2026",
     rating: 5,
     title: "Amazing",
     text: "This is by far the best server hosting company I have ever used. They have AMAZING support and good prices. I've been using Cherry hosting for a couple of..."
-  }
+  },
   {
     name: "Trustpilot Reviewer",
     date: "11th of October 2025",
