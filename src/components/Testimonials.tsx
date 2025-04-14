@@ -1,5 +1,11 @@
 
+import { useEffect } from "react";
 import { StarIcon } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 interface Testimonial {
   name: string;
@@ -35,7 +41,7 @@ const testimonials: Testimonial[] = [
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="glass-card p-6 flex flex-col h-full">
+    <div className="glass-card p-6 flex flex-col h-full min-h-[250px]">
       <div className="flex items-center gap-2 mb-2">
         <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
           <span className="text-white text-xs">T</span>
@@ -62,6 +68,18 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 };
 
 const Testimonials = () => {
+  // Auto-advance the carousel every 5 seconds
+  useEffect(() => {
+    const autoAdvance = setInterval(() => {
+      const nextButton = document.querySelector('[data-carousel-next]');
+      if (nextButton) {
+        (nextButton as HTMLButtonElement).click();
+      }
+    }, 5000);
+
+    return () => clearInterval(autoAdvance);
+  }, []);
+
   return (
     <div className="bg-midnight py-16">
       <div className="container mx-auto px-4">
@@ -77,10 +95,22 @@ const Testimonials = () => {
             <img src="https://cdn.trustpilot.net/brand-assets/1.1.0/logo-white.svg" alt="Trustpilot" className="h-6" />
           </div>
           
-          <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} testimonial={testimonial} />
-            ))}
+          <div className="w-full md:w-3/4">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <TestimonialCard testimonial={testimonial} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>

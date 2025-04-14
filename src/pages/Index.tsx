@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Packages from "@/components/Packages";
 import Testimonials from "@/components/Testimonials";
+import Comparison from "@/components/Comparison";
 import FAQ from "@/components/FAQ";
 import GamePanel from "@/components/GamePanel";
 import Footer from "@/components/Footer";
@@ -20,6 +21,7 @@ const Index = () => {
         <Hero />
         <Packages />
         <GamePanel />
+        <Comparison />
         <Testimonials />
         <FAQ />
       </main>
