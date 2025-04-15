@@ -26,14 +26,14 @@ const GamePanel = () => {
       id: "overview", 
       title: "Server Overview", 
       icon: <Server className="w-6 h-6 text-yellow-500" />,
-      image: "/lovable-uploads/ddc851e8-9451-4803-97ba-bc894af28da7.png",
+      image: "https://i.imgur.com/KYnEq6g.png",
       description: "View your server's resources, console and status"
     },
     { 
       id: "fileManager", 
       title: "File Management", 
       icon: <FileIcon className="w-6 h-6 text-yellow-500" />,
-      image: "/lovable-uploads/30c70f1f-1782-4c17-bc20-2e94c6b0102a.png",
+      image: "https://i.imgur.com/eFqoOuA.png",
       description: "Easy file management with drag & drop support"
     },
     { 
@@ -44,35 +44,10 @@ const GamePanel = () => {
       description: "Install and manage server software easily" 
     },
     { 
-      id: "pluginManager", 
-      title: "Plugin Manager", 
-      icon: <Puzzle className="w-6 h-6 text-yellow-500" />,
-      image: "/lovable-uploads/09e1ab7d-f48c-4bbb-9223-be3b0697d940.png",
-      description: "Install and manage server plugins instantly" 
-    },
-    { 
-      id: "modsManager", 
-      title: "Mods Manager", 
-      icon: <Cpu className="w-6 h-6 text-yellow-500" />,
-      description: "Install and manage server mods with ease"
-    },
-    { 
-      id: "playersManager", 
-      title: "Players Manager", 
-      icon: <Users className="w-6 h-6 text-yellow-500" />,
-      description: "Manage players, permissions and bans"
-    },
-    { 
       id: "serverStartup", 
       title: "Server Startup", 
       icon: <Play className="w-6 h-6 text-yellow-500" />,
       description: "Configure server startup parameters and variables"
-    },
-    { 
-      id: "serverSplitter", 
-      title: "Server Splitter", 
-      icon: <Grid className="w-6 h-6 text-yellow-500" />,
-      description: "Split your server resources between multiple instances"
     },
     { 
       id: "serverSettings", 
@@ -81,22 +56,10 @@ const GamePanel = () => {
       description: "Configure and customize your server's settings"
     },
     { 
-      id: "firewallPanel", 
-      title: "Firewall Panel", 
-      icon: <FirewallIcon className="w-6 h-6 text-yellow-500" />,
-      description: "Manage server security and firewall settings"
-    },
-    { 
       id: "subdomains", 
       title: "Subdomains", 
       icon: <Globe className="w-6 h-6 text-yellow-500" />,
       description: "Create and manage subdomains for your server"
-    },
-    { 
-      id: "recycleBin", 
-      title: "Recycle Bin", 
-      icon: <Trash className="w-6 h-6 text-yellow-500" />,
-      description: "Recover deleted files and configurations"
     }
   ];
 
