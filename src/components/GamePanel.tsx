@@ -27,7 +27,7 @@ const GamePanel = () => {
       title: "Server Overview", 
       icon: <Server className="w-6 h-6 text-yellow-500" />,
       image: "/lovable-uploads/ddc851e8-9451-4803-97ba-bc894af28da7.png",
-      description: "View and manage your server's resources and status"
+      description: "View your server's resources, console and status"
     },
     { 
       id: "fileManager", 
