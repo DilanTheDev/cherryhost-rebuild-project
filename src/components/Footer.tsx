@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Github, Twitter, Youtube, Instagram, Zap } from "lucide-react";
@@ -10,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/lovable-uploads/b14d89d5-320d-4ab8-bc5e-733ab34ecab2.png" alt="LightningHost Logo" className="h-12" />
+              <img src="https://i.imgur.com/7tjXTfa.png" alt="LightningHost Logo" className="h-12" />
             </Link>
             <p className="text-white/70 text-sm">
               Premium Minecraft server hosting with 24/7 support and an easy-to-use control panel.

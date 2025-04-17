@@ -1,8 +1,6 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, Clock, Users, Shield, Terminal, Cpu, Database, Gauge, FileIcon, 
-  Puzzle, Package, Play, Grid, Settings, Shield as FirewallIcon, Globe, Trash } from "lucide-react";
+import { Server, FileIcon, Play, Settings, Globe } from "lucide-react"; // Removed Package icon
 
 const FeatureCard = ({ icon, title, onClick, isActive }: { icon: React.ReactNode; title: string; onClick: () => void; isActive: boolean }) => {
   return (
@@ -36,35 +34,39 @@ const GamePanel = () => {
       image: "https://i.imgur.com/eFqoOuA.png",
       description: "Easy file management with drag & drop support"
     },
-    { 
-      id: "softwareManager", 
-      title: "Software Manager", 
-      icon: <Package className="w-6 h-6 text-yellow-500" />,
-      image: "/lovable-uploads/a4ef7814-94fa-4fd2-a8bc-a5635639c089.png",
-      description: "Install and manage server software easily" 
-    },
+    // Removed Software Manager panel
     { 
       id: "serverStartup", 
       title: "Server Startup", 
       icon: <Play className="w-6 h-6 text-yellow-500" />,
+      image: "https://i.imgur.com/Mmt81m4.png", // Updated image
       description: "Configure server startup parameters and variables"
     },
     { 
       id: "serverSettings", 
       title: "Server Settings", 
       icon: <Settings className="w-6 h-6 text-yellow-500" />,
+      image: "https://i.imgur.com/CDOXbi5.png", // Updated image
       description: "Configure and customize your server's settings"
     },
     { 
       id: "subdomains", 
       title: "Subdomains", 
       icon: <Globe className="w-6 h-6 text-yellow-500" />,
+      image: "https://i.imgur.com/kTbjLYS.png", // Updated image
       description: "Create and manage subdomains for your server"
     }
   ];
 
-  const activeImage = panels.find(panel => panel.id === activePanel)?.image || panels[0].image;
-  const activeDescription = panels.find(panel => panel.id === activePanel)?.description || "";
+  // Ensure activePanel defaults to an existing panel if the removed one was the default
+  if (activePanel === "softwareManager") {
+    setActivePanel("overview");
+  }
+
+  const activePanelData = panels.find(panel => panel.id === activePanel) || panels[0];
+  const activeImage = activePanelData.image;
+  const activeDescription = activePanelData.description;
+  const activeTitle = activePanelData.title;
 
   return (
     <div className="bg-midnight py-16">
@@ -80,14 +82,14 @@ const GamePanel = () => {
             <div className="relative">
               <img 
                 src={activeImage} 
-                alt={`LightningHost Game Panel - ${panels.find(panel => panel.id === activePanel)?.title}`} 
+                alt={`LightningHost Game Panel - ${activeTitle}`} 
                 className="w-full h-auto rounded-xl border border-white/10 shadow-xl shadow-black/20" 
               />
             </div>
             
             <div className="p-4 glass-card rounded-xl">
               <h3 className="text-xl font-bold text-white mb-2">
-                {panels.find(panel => panel.id === activePanel)?.title}
+                {activeTitle}
               </h3>
               <p className="text-white/70">{activeDescription}</p>
             </div>

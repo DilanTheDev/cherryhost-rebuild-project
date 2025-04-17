@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
-            <img src="/lovable-uploads/b14d89d5-320d-4ab8-bc5e-733ab34ecab2.png" alt="LightningHost Logo" className="h-8 sm:h-10 md:h-12" />
+            <img src="https://i.imgur.com/7tjXTfa.png" alt="LightningHost Logo" className="h-8 sm:h-10 md:h-12" />
           </Link>
         </div>
         
