@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,7 +8,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
-import AdminBlog from "./pages/admin/AdminBlog";
 
 // Layouts
 import DashboardLayout from "./components/dashboard/DashboardLayout";
@@ -24,19 +22,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          
+
           {/* Dashboard Routes */}
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
             {/* Add more dashboard routes here */}
           </Route>
-          
-          {/* Admin Routes */}
-          <Route path="/admin" element={<DashboardLayout />}>
-            <Route path="blog" element={<AdminBlog />} />
-            {/* Add more admin routes here */}
-          </Route>
-          
+
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
