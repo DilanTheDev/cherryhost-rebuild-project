@@ -75,7 +75,7 @@ const Hero = () => {
                   </div>
                   
                   <a href="https://billing.lightninghost.top" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-lightning-500 hover:bg-lightning-600 text-black font-medium py-0 px-[29px] mx-0 my-[16px]">
+                    <Button className="w-full text-black font-medium py-0 px-[29px] mx-0 my-[16px] bg-lightning-500 hover:bg-lightning-400">
                       Order Now
                     </Button>
                   </a>
